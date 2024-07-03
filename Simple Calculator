@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+#include <stdlib.h>
+
+
+int main(int argc, char *argv[])
+{
+  float x;
+  float y;
+  char op;
+  float answer;
+
+  printf("Enter the calculation:\n\n");
+  scanf("%f %c %f", &x, &op, &y);
+
+  switch(op)
+    {
+    case '/': answer = x/y;
+      break;
+    case '*': answer = x*y;
+      break;
+    case '+': answer = x+y;
+      break;
+    case '-': answer = x-y;
+      break;
+    case '^': answer = pow(x,y);
+      break;
+    case ' ': answer = sqrt(y);
+      break;
+    default: goto fail;
+    }
+  printf("%.9g%c%.9g =  %.6g\n\n",x,op, y, answer);
+  goto exit;
+ fail:
+  printf("Error.\n");
+ exit:
+  return 0;
+}
